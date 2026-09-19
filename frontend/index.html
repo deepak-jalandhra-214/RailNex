@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailNex | Reliable Connectivity</title>
+    <meta name="description" content="RailNex — Premium onboard railway WiFi for your journey. Verify your PNR and get instant high-speed internet access.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <!-- Header -->
+        <header>
+            <div class="header-badge">ONBOARD NETWORK ACTIVE</div>
+            <h1>RAILNEX</h1>
+            <p class="subtitle">Reliable connectivity for your journey</p>
+        </header>
+
+        <main id="main-content">
+
+            <!-- Screen 1: Verify -->
+            <section id="verify-section" class="screen active">
+                <div class="card">
+                    <h2>Enter PNR / Ticket Code</h2>
+                    <p class="card-helper">Find your 10-digit PNR on your printed ticket or SMS</p>
+
+                    <div class="input-wrapper">
+                        <span class="input-icon">🎫</span>
+                        <input type="text" id="pnr-input" placeholder="e.g. 1234567890" autocomplete="off" maxlength="10" />
+                    </div>
+
+                    <button id="verify-btn" class="primary-btn">VERIFY TICKET</button>
+                    <p id="verify-error" class="error-msg hidden"></p>
+                </div>
+
+                <!-- Demo PNR chips -->
+                <div class="demo-info">
+                    <p class="demo-title">Quick Demo PNRs</p>
+                    <div class="demo-chips">
+                        <div class="demo-chip" data-pnr="1234567890">
+                            <span class="demo-chip-pnr">1234567890</span>
+                            <span class="demo-chip-desc">Delhi → Ludhiana · 312 km</span>
+                        </div>
+                        <div class="demo-chip" data-pnr="1111111111">
+                            <span class="demo-chip-pnr">1111111111</span>
+                            <span class="demo-chip-desc">Ludhiana → Jalandhar · 65 km</span>
+                        </div>
+                        <div class="demo-chip" data-pnr="2222222222">
+                            <span class="demo-chip-pnr">2222222222</span>
+                            <span class="demo-chip-desc">Delhi → Ambala · 198 km</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 2: Plan Details -->
+            <section id="plan-section" class="screen hidden">
+                <div class="card">
+                    <div class="status-badge success">TICKET VERIFIED</div>
+
+                    <div class="journey-info">
+                        <span id="plan-source" class="city">Delhi</span>
+                        <span class="arrow">→</span>
+                        <span id="plan-destination" class="city">Ludhiana</span>
+                    </div>
+
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="label">Distance</span>
+                            <span class="value" id="plan-distance">312 km</span>
+                        </div>
+                        <div class="detail-item highlight">
+                            <span class="label">Plan</span>
+                            <span class="value" id="plan-price">₹10</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Validity</span>
+                            <span class="value" id="plan-validity">62 mins</span>
+                        </div>
+                    </div>
+
+                    <button id="activate-btn" class="primary-btn">ACTIVATE SERVICE</button>
+                </div>
+            </section>
+
+            <!-- Screen 3: Active -->
+            <section id="active-section" class="screen hidden">
+                <div class="card active-card">
+                    <div class="status-badge pulse">RAILNEX ACTIVE</div>
+
+                    <div class="journey-info">
+                        <span id="active-source" class="city">Delhi</span>
+                        <span class="arrow">→</span>
+                        <span id="active-destination" class="city">Ludhiana</span>
+                    </div>
+
+                    <!-- Circular timer ring -->
+                    <div class="timer-container">
+                        <div class="timer-ring-wrapper">
+                            <svg class="timer-ring-svg" viewBox="0 0 180 180">
+                                <defs>
+                                    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%"   stop-color="#4f46e5" />
+                                        <stop offset="50%"  stop-color="#3b82f6" />
+                                        <stop offset="100%" stop-color="#06b6d4" />
+                                    </linearGradient>
+                                </defs>
+                                <circle class="timer-ring-track"    cx="90" cy="90" r="80" />
+                                <circle class="timer-ring-progress" cx="90" cy="90" r="80" id="timer-ring" />
+                            </svg>
+                            <div class="timer-inner">
+                                <div id="countdown-timer" class="timer">00:00:00</div>
+                                <div class="timer-label">Remaining</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live telemetry -->
+                    <div class="telemetry-grid">
+                        <div class="telemetry-item">
+                            <div class="telemetry-label">Download</div>
+                            <div class="telemetry-value">64.2 Mbps ↓</div>
+                        </div>
+                        <div class="telemetry-item">
+                            <div class="telemetry-label">Latency</div>
+                            <div class="telemetry-value">18 ms</div>
+                        </div>
+                        <div class="telemetry-item">
+                            <div class="telemetry-label">Upload</div>
+                            <div class="telemetry-value">28.5 Mbps ↑</div>
+                        </div>
+                        <div class="telemetry-item">
+                            <div class="telemetry-label">Network</div>
+                            <div class="telemetry-value">5G Relay</div>
+                        </div>
+                    </div>
+
+                    <button id="extend-active-btn" class="secondary-btn">EXTEND VALIDITY — ₹10</button>
+                </div>
+            </section>
+
+            <!-- Screen 4: Expired -->
+            <section id="expired-section" class="screen hidden">
+                <div class="card error-card">
+                    <div class="status-badge error">VALIDITY EXPIRED</div>
+                    <p class="expired-msg">Your connectivity plan has ended.<br>Reactivate instantly to restore 5G relay.</p>
+                    <button id="extend-expired-btn" class="primary-btn">EXTEND FOR ₹10</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal hidden">
+        <div class="modal-content card">
+            <div class="modal-encrypt-badge">256-BIT ENCRYPTED SESSION</div>
+            <h2>Mock Payment Gateway</h2>
+            <p>You are paying</p>
+            <h3 class="payment-amount" id="payment-amount-display">₹10</h3>
+            <div id="payment-loader" class="loader hidden"></div>
+            <button id="confirm-payment-btn" class="primary-btn">CONFIRM DEMO PAYMENT</button>
+            <button id="cancel-payment-btn" class="text-btn">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
