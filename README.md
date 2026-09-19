@@ -14,6 +14,29 @@ The user experience is structured around a clean four-step journey:
 
 This makes the prototype feel like a real passenger-facing rail service rather than a simple demo screen.
 
+## User Flow
+
+```mermaid
+flowchart TD
+    A[Passenger opens RailNex] --> B[Enter PNR]
+    B --> C{Ticket found in DB?}
+    C -- No --> D[Show error: Ticket not found]
+    C -- Yes --> E[Fetch journey details]
+    E --> F[Display route, distance, price, validity]
+    F --> G[Choose Activate Service]
+    G --> H[Mock payment confirmation]
+    H --> I[Create active plan in database]
+    I --> J[Show live connectivity timer]
+    J --> K{User wants to extend?}
+    K -- Yes --> L[Pay ₹10]
+    L --> M[Extend expiry time]
+    M --> J
+    K -- No --> N[Session remains active until expiry]
+    J --> O{Service expires?}
+    O -- Yes --> P[Show expired state]
+    P --> Q[Offer renewal for ₹10]
+```
+
 ## UI Screen Explanation
 - Verify screen: A clean ticket-check page with a large PNR input field and quick access buttons for sample tickets.
 - Plan screen: Shows the confirmed route, pricing, and validity window before activation.
