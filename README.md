@@ -1,16 +1,32 @@
 # RailNex
 
-RailNex is a railway passenger connectivity prototype that lets a traveler verify a ticket, choose a data plan based on route distance, activate the service, and extend validity with a mock payment flow.
+RailNex is a railway passenger connectivity prototype designed to make onboard internet access feel simple, trustworthy, and easy to use during travel. A passenger enters a PNR, verifies the ticket, selects a plan based on journey distance, and activates internet access with a mock payment flow.
 
-It combines a lightweight frontend, a FastAPI backend, and a SQLite database to simulate a real-world train internet purchase experience.
+The product is built as a realistic demo of how railway connectivity services could work in a train environment, combining a browser-based experience with a lightweight API and database backend.
+
+## Product Preview
+The user experience is structured around a clean four-step journey:
+
+1. Verify ticket — the rider enters a 10-digit PNR to confirm the train booking.
+2. Review plan — the app displays source, destination, route distance, valid plan price, and service duration.
+3. Activate service — the customer pays a mock amount and starts the onboard connectivity session.
+4. Monitor usage — the app shows an active countdown timer, connection telemetry, and the option to extend the plan.
+
+This makes the prototype feel like a real passenger-facing rail service rather than a simple demo screen.
+
+## UI Screen Explanation
+- Verify screen: A clean ticket-check page with a large PNR input field and quick access buttons for sample tickets.
+- Plan screen: Shows the confirmed route, pricing, and validity window before activation.
+- Active session screen: Displays the live countdown timer, train-route summary, and connection metrics such as download speed and latency.
+- Expired state: Informs the traveler that service has ended and offers a quick renewal option for another ₹10.
 
 ## Features
-- Verify a PNR and fetch ticket details from the database
-- Calculate a travel plan based on route distance
-- Activate internet validity for a valid ticket
-- Extend validity by paying an additional ₹10
-- View plan status and countdown timer in the UI
-- Use demo PNR records for quick testing
+- Verify a PNR and return train route details from the database
+- Calculate service price and validity based on trip distance
+- Activate internet for a valid ticket with a mock payment flow
+- Extend connectivity by paying an additional ₹10
+- Show live countdown and session status in the UI
+- Use seeded demo tickets for fast testing and demonstrations
 
 ## Tech Stack
 - Frontend: HTML, CSS, JavaScript
