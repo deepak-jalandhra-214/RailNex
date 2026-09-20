@@ -120,7 +120,7 @@ async function handleVerify() {
             showError(data.message || 'Verification failed');
         }
     } catch (error) {
-        showError('Network error. Ensure backend is running.');
+        showError(`Cannot reach RailNex API at ${API_BASE}. Start the backend with start-backend.bat, then try again.`);
     } finally {
         elements.verifyBtn.textContent = 'VERIFY TICKET';
         elements.verifyBtn.disabled = false;

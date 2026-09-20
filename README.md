@@ -87,10 +87,17 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Start the API:
+Start the API from the project root with the Windows launcher:
 
 ```bash
-uvicorn main:app --reload
+start-backend.bat
+```
+
+Or start it manually from the backend directory:
+
+```bash
+cd backend
+uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
 The backend will run at:
