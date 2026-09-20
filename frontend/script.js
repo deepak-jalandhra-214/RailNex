@@ -1,4 +1,5 @@
-const API_BASE = 'http://127.0.0.1:8000';
+// Set window.RAILNEX_API_BASE before this script when the API is hosted elsewhere.
+const API_BASE = window.RAILNEX_API_BASE || 'http://127.0.0.1:8000';
 
 // Ring constants — circumference of r=80 circle
 const RING_CIRCUMFERENCE = 2 * Math.PI * 80; // ~502.65
